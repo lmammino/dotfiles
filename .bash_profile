@@ -17,6 +17,9 @@ alias gith='git log --all --graph --pretty=format:"%Cred%h%Creset -%C(auto)%d%Cr
 #finder
 alias finder='open -a finder';
 
+#pygments cat
+alias catp='pygmentize -O style=monokai -f console256 -g';
+
 #beep sound
 alias beep='tput bel';
 
