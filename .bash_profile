@@ -18,7 +18,7 @@ alias gith='git log --all --graph --pretty=format:"%Cred%h%Creset -%C(auto)%d%Cr
 alias finder='open -a finder';
 
 #pygments cat
-alias catp='pygmentize -O style=monokai -f console256 -g';
+alias cat='pygmentize -O style=monokai -f console256 -g';
 
 #beep sound
 alias beep='tput bel';
@@ -31,7 +31,7 @@ alias enc='openssl enc -e -aes128 -base64 -pass';
 alias m4a2mp3='for f in *.m4a; do ffmpeg -i "$f" -acodec libmp3lame -ab 320 "${f%.m4a}.mp3"; done';
 alias flac2mp3='(for FILE in *.flac ; do ffmpeg -i "$FILE" -f mp3 -ab 192000 "`basename "$FILE" .flac`.mp3" || break; done)';
 
-#vagrant for sbaam
+#vagrant shortcuts
 alias vup='vagrant up';
 alias vsu='vagrant suspend';
 alias vss='vagrant ssh';
