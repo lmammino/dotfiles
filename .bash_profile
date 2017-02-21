@@ -1,7 +1,6 @@
 EMOJIS=('🌄' '☀️' '☕️' '🍳' '🍞' '🐓' '🐔' '🌲' '🌳' '🌴' '🌵' '🌷' '🌺' '🌸' '🌹' '🌻' '🌼' '💐' '🌾' '🌿' '🍀' '🍁' '🍂' '🍃' '🍄' '☀️' '⛅️' '☁️' '☔️' '🌈' '🌊' '🗻' '🌍' '🌞' '💻' '🚽' '📚' '✂️' '🔪' '🍔' '🍕' '🍖' '🍗' '🍘' '🍙' '🍚' '🍛' '🍜' '🍝' '🍞' '🍟' '🍣' '🍤' '🍥' '🍱' '🍲' '🍳' '🍴' '🍏' '🍇' '🍉' '🍊' '🍌' '🍍' '🍑' '🍒' '🍓' '🍡' '🍢' '🍦' '🍧' '🍨' '🍩' '🍪' '🍫' '🍬' '🍭' '🍮' '🍰' '🍷' '🍸' '🍶' '🍹' '🍺' '🍻' '😴' '🌠' '🌑' '🌒' '🌔' '🌖' '🌘' '🌚' '🌝' '🌛' '🌜' '⛺️' '🌃' '🌉' '🌌');
 
 RANDOM_EMOJI() {
-  RANDOM=$(date +%s);
   SELECTED_EMOJI=${EMOJIS[$RANDOM % ${#EMOJIS[@]}]};
   echo $SELECTED_EMOJI;
 }
@@ -32,8 +31,8 @@ alias cat='pygmentize -O style=monokai -f console256 -g';
 alias beep='tput bel';
 
 #encrypt/decrypt
-alias dec='openssl enc -d -aes128 -base64 -pass';
-alias enc='openssl enc -e -aes128 -base64 -pass';
+alias dec='openssl enc -d -aes128 -base64 -in';
+alias enc='openssl enc -e -aes128 -base64 -in';
 
 #convert m4a files to mp3 in the current folder
 alias m4a2mp3='for f in *.m4a; do ffmpeg -i "$f" -acodec libmp3lame -ab 320 "${f%.m4a}.mp3"; done';
