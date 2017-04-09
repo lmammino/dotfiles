@@ -18,6 +18,9 @@ clear;
 #exports favourite editor
 export EDITOR=vim;
 
+#clear iTerm scrollback history
+alias clearf="printf '\e]50;ClearScrollback\a'";
+
 #git
 alias gith='git log --all --graph --pretty=format:"%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit --date=relative';
 
