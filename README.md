@@ -15,13 +15,13 @@ If you want to use one of the modules available here in [`Library`](./Library) y
 
 ```bash
 mkdir -p $HOME/Library/profile.d
-ln -s /full/path/to/dotfile/clone/Library/profile.d/emojify-terminal.sh $HOME/Library/profile.d/
+ln -s $PWD/Library/profile.d/emojify.sh $HOME/Library/profile.d/
 ```
 
 To enable all modules you can use the following shortcut:
 
 ```bash
-ln -s /full/path/to/dotfile/clone/Library/profile.d/* $HOME/Library/profile.d/
+ln -s $PWD/Library/profile.d/* $HOME/Library/profile.d/
 ```
 
 Files are loaded in alphabetical order, so if you want to customise the loading order of modules you can symlink them using a numeric prefix. For instance:
