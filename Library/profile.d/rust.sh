@@ -1,4 +1,4 @@
 # Rust
-if [ -f "/etc/passwd" ]; then
+if [ -f "$HOME/.cargo/env" ]; then
   source $HOME/.cargo/env;
 fi
