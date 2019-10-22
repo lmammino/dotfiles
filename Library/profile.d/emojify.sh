@@ -13,4 +13,3 @@ function parse_git_branch {
 }
 
 PS1='\n$(RANDOM_EMOJI)  \[\e[m\]\[\e[1;32m\]\[\e[4;32m\]\u\[\e[m\] \[\e[0;37m\]\w\[\e[m\] \[\e[0;33m\]$(parse_git_branch)\[\e[m\]\[\e[1;32m\]\n  \[\e[m\] \[\e[0;37m\]';
-clear;
