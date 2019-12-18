@@ -21,7 +21,7 @@ ln -s $PWD/Library/profile.d/emojify.sh $HOME/Library/profile.d/
 To enable all modules you can use the following shortcut:
 
 ```bash
-ln -s $PWD/Library/profile.d/* $HOME/Library/profile.d/
+ln -sF $PWD/Library/profile.d/* $HOME/Library/profile.d/
 ```
 
 Files are loaded in alphabetical order, so if you want to customise the loading order of modules you can symlink them using a numeric prefix. For instance:
