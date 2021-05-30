@@ -21,11 +21,28 @@ For instance:
 ```bash
 # ~/.config/fish/config.fish
 
-set DOTCONFIG $HOME/Documents/dotfiles/shell # make sure this matches where you cloned the repo
-source $DOTCONFIG/asdf.sh
-source $DOTCONFIG/rust.sh
-source $DOTCONFIG/node.sh
-source $DOTCONFIG/beep.sh
+set DOTCONF $HOME/Documents/dotfiles/shell # make sure this matches where you cloned the repo
+
+source $DOTCONF/asdf.sh
+source $DOTCONF/beep.sh
+source $DOTCONF/brew.sh
+source $DOTCONF/clearf.sh
+source $DOTCONF/deno.sh
+source $DOTCONF/encryption.sh
+source $DOTCONF/finder.sh
+source $DOTCONF/fuck.sh
+source $DOTCONF/git.sh
+source $DOTCONF/go.sh
+source $DOTCONF/localbin.sh
+source $DOTCONF/ls.sh
+source $DOTCONF/mp3.sh
+source $DOTCONF/nim.sh
+source $DOTCONF/node.sh
+source $DOTCONF/python.sh
+source $DOTCONF/rust.sh
+source $DOTCONF/starship.sh
+source $DOTCONF/vim.sh
+source $DOTCONF/yarn.sh
 ```
 
 
