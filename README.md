@@ -3,32 +3,29 @@
 My personal collection of dotfiles.
 
 
-## .bashrc && .bash_profile
+## Install
 
-I have a modular setup for my `.bashrc` and my `.bash_profile`.
-
-This setup searches for `*.sh` files in `$HOME/Library/profile.d` or `$HOME/Library/bashrc.d`.
-
-To use this setup, copy [`.bash_profile`](./.bash_profile) and [`.bashrc`](./.bashrc) in your `$HOME` directory. Of course make sure to backup / merge your existing one.
-
-If you want to use one of the modules available here in [`Library`](./Library) you can either copy it to your local path or, even better, you can simlynk it, for example:
+Clone the repo locally with:
 
 ```bash
-mkdir -p $HOME/Library/profile.d
-ln -s $PWD/Library/profile.d/emojify.sh $HOME/Library/profile.d/
+git clone https://github.com/lmammino/dotfiles.git
 ```
 
-To enable all modules you can use the following shortcut:
+
+## Shell configuration (Fish shell 🐟)
+
+In order to enable one or more scripts you just need to source them in your `~/.config/fish/config.fish` config file.
+
+For instance:
 
 ```bash
-ln -sF $PWD/Library/profile.d/* $HOME/Library/profile.d/
-```
+# ~/.config/fish/config.fish
 
-Files are loaded in alphabetical order, so if you want to customise the loading order of modules you can symlink them using a numeric prefix. For instance:
-
-```bash
-mkdir -p $HOME/Library/profile.d
-ln -s /full/path/to/dotfile/clone/Library/profile.d/emojify-terminal.sh $HOME/Library/profile.d/100.emojify-terminal.sh
+set DOTCONFIG $HOME/Documents/dotfiles/shell # make sure this matches where you cloned the repo
+source $DOTCONFIG/asdf.sh
+source $DOTCONFIG/rust.sh
+source $DOTCONFIG/node.sh
+source $DOTCONFIG/beep.sh
 ```
 
 
