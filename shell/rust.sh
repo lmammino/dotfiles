@@ -1,4 +1,4 @@
 # Rust for fish shell
-if test -f "$HOME/.cargo/env"
-  source $HOME/.cargo/env
+if test -d "$HOME/.cargo/bin"
+  set -x PATH "$HOME/.cargo/bin" $PATH
 end
