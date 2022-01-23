@@ -29,6 +29,7 @@ source $DOTCONF/brew.sh
 source $DOTCONF/clearf.sh
 source $DOTCONF/deno.sh
 source $DOTCONF/encryption.sh
+source $DOTCONF/env.sh
 source $DOTCONF/finder.sh
 source $DOTCONF/fuck.sh
 source $DOTCONF/git.sh
