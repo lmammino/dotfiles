@@ -10,6 +10,11 @@ if test -f "$HOME/.poetry/env"
   source $HOME/.poetry/env
 end
 
+# Supports for pipx installed binaries (https://pypa.github.io/pipx/)
+if test -d "$HOME/.local/bin"
+  set -x PATH "$HOME/.local/bin" $PATH
+end
+
 # supports pyenv
 if test -d "$HOME/.pyenv"
   set -Ux PYENV_ROOT $HOME/.pyenv
