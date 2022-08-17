@@ -1,7 +1,7 @@
-# helper to easily load .env files
+# helpers to easily load .env files
 
-function load-env
-    for line in (cat $argv[1])
+function envs
+    for line in $argv
         set line (string trim $line)
         if test -z $line
         or string match -q "#*" $line
@@ -28,4 +28,8 @@ function load-env
         #echo "[name=$name,value=$value,sub1=$sub1,sub2=$sub2]"
         set -gx $name $sub2
     end
+end
+
+function load-env
+    envs (cat $argv[1])
 end
