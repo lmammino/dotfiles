@@ -1,5 +1,17 @@
 # Python
 
+# Pip3 installed binaries
+if test -d "$HOME/Library/Python/"
+  for p in (ls -d $HOME/Library/Python/*)
+      set -x PATH "$p/bin" $PATH
+  end
+end
+
+# Gives priority to brew installed python
+if test -d "/usr/local/opt/python/libexec/bin"
+  set -x PATH "/usr/local/opt/python/libexec/bin" $PATH
+end
+
 # Gives priority to brew installed python
 if test -d "/usr/local/opt/python/libexec/bin"
   set -x PATH "/usr/local/opt/python/libexec/bin" $PATH
