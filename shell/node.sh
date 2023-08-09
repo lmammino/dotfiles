@@ -9,3 +9,9 @@ else if test -d "$HOME/n"
   set -x N_PREFIX $NODE_PREFIX
   set -x PATH $NODE_PREFIX/bin $PATH
 end
+
+# Bun support
+if test -d "$HOME/.bun"
+  set --export BUN_INSTALL "$HOME/.bun"
+  set --export PATH $BUN_INSTALL/bin $PATH
+end

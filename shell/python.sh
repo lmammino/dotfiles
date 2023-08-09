@@ -17,11 +17,6 @@ if test -d "/usr/local/opt/python/libexec/bin"
   set -x PATH "/usr/local/opt/python/libexec/bin" $PATH
 end
 
-# Supports for poetry (https://python-poetry.org/)
-if test -f "$HOME/.poetry/env"
-  source $HOME/.poetry/env
-end
-
 # Supports for pipx installed binaries (https://pypa.github.io/pipx/)
 if test -d "$HOME/.local/bin"
   set -x PATH "$HOME/.local/bin" $PATH
