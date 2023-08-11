@@ -23,9 +23,10 @@ For instance:
 
 set DOTCONF $HOME/Documents/dotfiles/shell # make sure this matches where you cloned the repo
 
+source $DOTCONF/00_brew.sh
+source $DOTCONF/atuin.sh
 source $DOTCONF/asdf.sh
 source $DOTCONF/beep.sh
-source $DOTCONF/brew.sh
 source $DOTCONF/clearf.sh
 source $DOTCONF/deno.sh
 source $DOTCONF/encryption.sh
