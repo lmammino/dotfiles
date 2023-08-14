@@ -1,6 +1,6 @@
 # helpers to easily load .env files
 
-function envs
+function envs -d "Load environment variables from string"
     for line in $argv
         set line (string trim $line)
         if test -z $line
@@ -33,10 +33,10 @@ function envs
     end
 end
 
-function load-env
+function load-env -d "Load environment variables from file"
     envs (cat $argv[1])
 end
 
-function pbenv
+function pbenv -d "Load environment variables from clipboard"
     envs (pbpaste)
 end
