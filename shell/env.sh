@@ -7,6 +7,9 @@ function envs
         or string match -q "#*" $line
             continue
         end
+        if string match -q "export *" $line
+            set line (string sub -s 7 $line)
+        end
         set name_value (string split -m 1 = $line)
         set name (string trim $name_value[1])
         set value (string trim $name_value[2])
@@ -32,4 +35,8 @@ end
 
 function load-env
     envs (cat $argv[1])
+end
+
+function pbenv
+    envs (pbpaste)
 end
