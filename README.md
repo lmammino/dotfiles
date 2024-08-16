@@ -2,7 +2,6 @@
 
 My personal collection of dotfiles.
 
-
 ## Install
 
 Clone the repo locally with:
@@ -11,10 +10,10 @@ Clone the repo locally with:
 git clone https://github.com/lmammino/dotfiles.git
 ```
 
-
 ## Shell configuration (Fish shell 🐟)
 
-In order to enable one or more scripts you just need to source them in your `~/.config/fish/config.fish` config file.
+In order to enable one or more scripts you just need to source them in your
+`~/.config/fish/config.fish` config file.
 
 For instance:
 
@@ -45,16 +44,18 @@ source $DOTCONF/rust.sh
 source $DOTCONF/starship.sh
 source $DOTCONF/vim.sh
 source $DOTCONF/yarn.sh
+source $DOTCONF/yazi.sh
+source $DOTCONF/zfz.sh
 ```
-
 
 ## Contributing
 
-Everyone is very welcome to contribute to this project. You can contribute just by submitting bugs or
-suggesting improvements by [opening an issue on GitHub](https://github.com/lmammino/dotfiles/issues).
+Everyone is very welcome to contribute to this project. You can contribute just
+by submitting bugs or suggesting improvements by
+[opening an issue on GitHub](https://github.com/lmammino/dotfiles/issues).
 
-You can also submit PRs as long as you adhere with the code standards and write tests for the proposed changes.
-
+You can also submit PRs as long as you adhere to the code standards and write
+tests for the proposed changes.
 
 ## License
 
