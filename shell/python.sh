@@ -1,25 +1,33 @@
 # Python
 
+# Support for uv/uvx and
+# for pipx installed binaries (https://pypa.github.io/pipx/)
+if test -d "$HOME/.local/bin"
+  and not contains "$HOME/.local/bin" $PATH
+    set -x PATH "$HOME/.local/bin" $PATH
+end
+
 # Pip3 installed binaries
 if test -d "$HOME/Library/Python/"
   for p in (ls -d $HOME/Library/Python/*)
-      set -x PATH "$p/bin" $PATH
+      if not contains "$p/bin" $PATH
+        set -x PATH "$p/bin" $PATH
+      end
   end
 end
 
 # Gives priority to brew installed python
 if test -d "/usr/local/opt/python/libexec/bin"
-  set -x PATH "/usr/local/opt/python/libexec/bin" $PATH
+  if not contains "/usr/local/opt/python/libexec/bin" $PATH
+    set -x PATH "/usr/local/opt/python/libexec/bin" $PATH
+  end
 end
 
 # Gives priority to brew installed python
 if test -d "/usr/local/opt/python/libexec/bin"
-  set -x PATH "/usr/local/opt/python/libexec/bin" $PATH
-end
-
-# Supports for pipx installed binaries (https://pypa.github.io/pipx/)
-if test -d "$HOME/.local/bin"
-  set -x PATH "$HOME/.local/bin" $PATH
+  if not contains "/usr/local/opt/python/libexec/bin" $PATH
+    set -x PATH "/usr/local/opt/python/libexec/bin" $PATH
+  end
 end
 
 # supports pyenv
