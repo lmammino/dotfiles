@@ -40,6 +40,7 @@ source $DOTCONF/mp3.sh
 source $DOTCONF/nim.sh
 source $DOTCONF/node.sh
 source $DOTCONF/python.sh
+source $DOTCONF/ruby.sh
 source $DOTCONF/rust.sh
 source $DOTCONF/starship.sh
 source $DOTCONF/vim.sh
