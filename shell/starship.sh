@@ -1,5 +1,5 @@
-# Starship init for fish shell
+# Starship init for zsh
 
-if which starship >/dev/null 2>&1
-  starship init fish | source
-end
+if command -v starship >/dev/null 2>&1; then
+  eval "$(starship init zsh)"
+fi

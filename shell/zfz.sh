@@ -1,5 +1,5 @@
-# Enable support for zfz with fish
+# Enable support for fzf with zsh
 
-if which zfz >/dev/null 2>&1
-    fzf --fish | source
-end
+if command -v fzf >/dev/null 2>&1; then
+    [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+fi

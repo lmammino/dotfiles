@@ -1,10 +1,12 @@
 # exports favourite editor
 
-if which vim >/dev/null 2>&1
-  if which nvim >/dev/null 2>&1
-    function vim --description 'opens nvim with vim'    
-      nvim
-    end
-  end
-  set -x EDITOR vim
-end
+if command -v vim >/dev/null 2>&1; then
+  if command -v nvim >/dev/null 2>&1; then
+    # opens nvim with vim
+    function vim() {
+      nvim "$@"
+    }
+  fi
+  # Not ready for this now
+  # export EDITOR=vim
+fi

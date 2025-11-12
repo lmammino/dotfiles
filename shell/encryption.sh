@@ -1,18 +1,20 @@
 # encrypt/decrypt helper functions
 
-# encrypts/decrypts shortcuts using openssl (-aes128 -base64)
+# encrypts/decrypts shortcuts using openssl (-pkbdf2 -base64)
 #
 # Examples:
 #
 #  enc SOMEFILE.txt -out SOMEFILE.enc
 #  dec SOMEFILE.enc -out SOMEFILE.txt
 
-if which openssl >/dev/null 2>&1
-  function dec --description 'decrypts data from a file using openssl aes128 base64. Usage: dec SOMEFILE.txt'
-    openssl enc -d -aes128 -base64 -in $argv
-  end
+if command -v openssl >/dev/null 2>&1; then
+  # decrypts data from a file using openssl pkbdf2 base64. Usage: dec SOMEFILE.txt
+  function dec() {
+    openssl enc -d -pkbdf2 -base64 -in "$@"
+  }
 
-  function enc --description 'encrypts data from a file using openssl aes128 base64. Usage: enc SOMEFILE.enc -out SOMEFILE.txt'
-    openssl enc -e -aes128 -base64 -in $argv
-  end
-end
+  # encrypts data from a file using openssl pkbdf2 base64. Usage: enc SOMEFILE.enc -out SOMEFILE.txt
+  function enc() {
+    openssl enc -e -pkbdf2 -base64 -in "$@"
+  }
+fi

@@ -1,12 +1,13 @@
 # Enable support for yazi file manager
 
-if which yazi >/dev/null 2>&1
-    function yy
-        set tmp (mktemp -t "yazi-cwd.XXXXXX")
-        yazi $argv --cwd-file="$tmp"
-        if set cwd (command cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+if command -v yazi >/dev/null 2>&1; then
+    function yy() {
+        local tmp=$(mktemp -t "yazi-cwd.XXXXXX")
+        yazi "$@" --cwd-file="$tmp"
+        local cwd=$(cat -- "$tmp")
+        if [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
             cd -- "$cwd"
-        end
+        fi
         rm -f -- "$tmp"
-    end
-end
+    }
+fi

@@ -1,42 +1,43 @@
 # helpers to easily load .env files
 
-function envs -d "Load environment variables from string"
-    for line in $argv
-        set line (string trim $line)
-        if test -z $line
-        or string match -q "#*" $line
+# Load environment variables from string
+function envs() {
+    local line
+    for line in "$@"; do
+        line=$(echo "$line" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+        if [ -z "$line" ] || [[ "$line" =~ ^# ]]; then
             continue
-        end
-        if string match -q "export *" $line
-            set line (string sub -s 7 $line)
-        end
-        set name_value (string split -m 1 = $line)
-        set name (string trim $name_value[1])
-        set value (string trim $name_value[2])
-        #echo "[line=$line,name_value=$name_value,name=$name,value=$value]"
-        if string match -q '"*"' $value
-        or string match -q "'*'" $value
-            set value (string sub -s 2 -e -1 $value)
-        end
-        if string match -qr '[$][{][A-Za-z_][A-Za-z_0-9]*[}]' $sub1
-            set sub1 (string replace '[$][{]([A-Za-z_][A-Za-z_0-9]*)[}]' '$$$1' $sub1)
+        fi
+        if [[ "$line" =~ ^export[[:space:]]+ ]]; then
+            line=$(echo "$line" | sed 's/^export[[:space:]]*//')
+        fi
+        local name=$(echo "$line" | cut -d= -f1 | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+        local value=$(echo "$line" | cut -d= -f2- | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+        if [[ "$value" =~ ^\".*\"$ ]] || [[ "$value" =~ ^\'.*\'$ ]]; then
+            value=$(echo "$value" | sed 's/^["'\'']//;s/["'\'']$//')
+        fi
+        local sub1
+        if [[ "$value" =~ \$\{[A-Za-z_][A-Za-z_0-9]*\} ]]; then
+            sub1=$(echo "$value" | sed 's/\${\([A-Za-z_][A-Za-z_0-9]*\)}/\$\1/g')
         else
-            set sub1 $value
-        end
-        if string match -qr '[$][A-Za-z_][A-Za-z_0-9]*' $sub1
-            set sub2 (eval "echo $value")
+            sub1="$value"
+        fi
+        local sub2
+        if [[ "$sub1" =~ \$[A-Za-z_][A-Za-z_0-9]* ]]; then
+            sub2=$(eval "echo $value")
         else
-            set sub2 $value
-        end
-        #echo "[name=$name,value=$value,sub1=$sub1,sub2=$sub2]"
-        set -gx $name $sub2
-    end
-end
+            sub2="$value"
+        fi
+        export "$name"="$sub2"
+    done
+}
 
-function load-env -d "Load environment variables from file"
-    envs (cat $argv[1])
-end
+# Load environment variables from file
+function load-env() {
+    envs $(cat "$1")
+}
 
-function pbenv -d "Load environment variables from clipboard"
-    envs (pbpaste)
-end
+# Load environment variables from clipboard
+function pbenv() {
+    envs $(pbpaste)
+}
