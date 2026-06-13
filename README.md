@@ -39,6 +39,7 @@ source $DOTCONF/ls.sh
 source $DOTCONF/mp3.sh
 source $DOTCONF/nim.sh
 source $DOTCONF/node.sh
+source $DOTCONF/php.sh
 source $DOTCONF/python.sh
 source $DOTCONF/ruby.sh
 source $DOTCONF/rust.sh
