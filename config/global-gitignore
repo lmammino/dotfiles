@@ -1,3 +1,5 @@
 .DS_Store
 [Tt]humbs.db
 .idea
+
+**/.claude/settings.local.json
