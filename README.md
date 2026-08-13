@@ -50,6 +50,26 @@ source $DOTCONF/yazi.sh
 source $DOTCONF/zfz.sh
 ```
 
+## Claude Code status line
+
+[Claude Code](https://code.claude.com) supports a custom status bar that runs
+a shell script and displays whatever it prints. The script lives in
+[`config/claude/statusline.sh`](config/claude/statusline.sh) and shows the
+current model (+ effort), the working directory with its git branch, and the
+context-window usage percentage (color-coded).
+
+Running `setup.sh` symlinks it into `~/.claude/statusline.sh`. To activate it
+in Claude Code, add the following to `~/.claude/settings.json`:
+
+```json
+{
+  "statusLine": {
+    "type": "command",
+    "command": "sh $HOME/.claude/statusline.sh"
+  }
+}
+```
+
 ## Contributing
 
 Everyone is very welcome to contribute to this project. You can contribute just
