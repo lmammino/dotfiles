@@ -7,7 +7,7 @@
 #  enc SOMEFILE.txt -out SOMEFILE.enc
 #  dec SOMEFILE.enc -out SOMEFILE.txt
 
-if which openssl >/dev/null 2>&1
+if type -q openssl
   function dec --description 'decrypts data from a file using openssl aes128 base64. Usage: dec SOMEFILE.txt'
     openssl enc -d -aes128 -base64 -in $argv
   end

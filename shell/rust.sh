@@ -4,6 +4,6 @@ if test -d "$HOME/.cargo/bin"
 end
 
 # Uses exa () instead of ls if available
-if which exa >/dev/null 2>&1
+if type -q exa
   alias ls="exa"
 end

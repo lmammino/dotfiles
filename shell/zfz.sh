@@ -1,5 +1,5 @@
 # Enable support for zfz with fish
 
-if which zfz >/dev/null 2>&1
+if type -q zfz
     fzf --fish | source
 end

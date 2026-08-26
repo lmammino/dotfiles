@@ -1,5 +1,5 @@
 # Starship init for fish shell
 
-if which starship >/dev/null 2>&1
+if type -q starship
   starship init fish | source
 end
