@@ -17,6 +17,12 @@ set -x
 git config --global core.excludesfile ${SCRIPT_DIR}/config/global-gitignore
 { set +x; } 2>/dev/null
 
+echo "→ Symlinking Atuin config into ~/.config/atuin/"
+set -x
+mkdir -p "$HOME/.config/atuin"
+ln -sf ${SCRIPT_DIR}/config/atuin/config.toml "$HOME/.config/atuin/config.toml"
+{ set +x; } 2>/dev/null
+
 echo "→ Symlinking Claude Code status line script into ~/.claude/"
 set -x
 mkdir -p "$HOME/.claude"

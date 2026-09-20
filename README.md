@@ -71,6 +71,12 @@ in Claude Code, add the following to `~/.claude/settings.json`:
 }
 ```
 
+## Atuin config
+
+[Atuin](https://atuin.sh) (shell history) configuration lives in
+[`config/atuin/config.toml`](config/atuin/config.toml). Running `setup.sh`
+symlinks it into `~/.config/atuin/config.toml`.
+
 ## Contributing
 
 Everyone is very welcome to contribute to this project. You can contribute just
