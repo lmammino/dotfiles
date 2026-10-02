@@ -31,6 +31,7 @@ source $DOTCONF/deno.sh
 source $DOTCONF/encryption.sh
 source $DOTCONF/env.sh
 source $DOTCONF/finder.sh
+source $DOTCONF/flutter.sh
 source $DOTCONF/fuck.sh
 source $DOTCONF/git.sh
 source $DOTCONF/go.sh
