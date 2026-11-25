@@ -46,6 +46,7 @@ source $DOTCONF/ruby.sh
 source $DOTCONF/rust.sh
 source $DOTCONF/ssh.sh
 source $DOTCONF/starship.sh
+source $DOTCONF/tailscale.sh
 source $DOTCONF/vim.sh
 source $DOTCONF/yarn.sh
 source $DOTCONF/yazi.sh
